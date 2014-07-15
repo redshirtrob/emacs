@@ -1,4 +1,3 @@
-;; Similar to C-x o
 (defun select-previous-window ()
   "Switch to the previous window"
   (interactive)
@@ -16,3 +15,16 @@ Can be customized for each major mode.")
     (let ((beg (+ (match-beginning 0) 1))
           (end (re-search-forward copy-word-under-cursor-regex)))
       (copy-region-as-kill beg (- end 1)))))
+
+(defun swap-windows ()
+  "Switch the buffers between two windows."
+  (interactive)
+  (unless (not (eq (length (window-list)) 2))
+    (let* ((this-window (selected-window))
+           (this-buffer (window-buffer this-window))
+           (that-window (next-window))
+           (that-buffer (window-buffer that-window))
+           (new-this-buffer that-buffer)
+           (new-that-buffer this-buffer))
+      (set-window-buffer this-window new-this-buffer)
+      (set-window-buffer that-window new-that-buffer))))
