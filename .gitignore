@@ -1,2 +1,13 @@
 # Compiled
 *.elc
+
+*.swp
+
+# OSX
+*.DS_Store
+.DS_Store
+
+# Temporary files
+*~
+\#*\#
+.#*
