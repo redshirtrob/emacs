@@ -10,7 +10,8 @@
 (require 'cl)
 (cl-labels
     ((add-path (p) (add-to-list 'load-path (concat emacs-root p))))
-  (add-path "emacs/lisp"))
+  (add-path "emacs/lisp")
+  (add-path "ws/slime"))
 
 (load-library "package-extensions")
 (load-library "commands")
@@ -96,5 +97,8 @@
 (setq ido-create-new-buffer 'always)
 (setq inhibit-startup-message t
       inhibit-startup-echo-area-message t)
+
+(require 'slime-autoloads)
+(setq inferior-lisp-program "/usr/local/bin/sbcl")
 
 (load-library "~/.customizations") ;; Things that change from machine to machine
