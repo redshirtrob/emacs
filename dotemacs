@@ -18,6 +18,7 @@
 (load-library "c-mode-hacks")
 (load-library "emacs-lisp-mode-hacks")
 (load-library "go-mode-hacks")
+(load-library "html-mode-hacks")
 (load-library "objc-mode-hacks")
 (load-library "shell-script-mode-hacks")
 (load-library "text-mode-hacks")
