@@ -27,6 +27,7 @@ Assumes both files are in the same directory."
 
 (defun objc-mode-customizations ()
   (define-key objc-mode-map (kbd "C-c C-w") 'copy-word-under-cursor)
+  (define-key objc-mode-map (kbd "C-c /") 'uncomment-region)
   (define-key objc-mode-map (kbd "C-c t") 'objc-jump-between-header-source))
 
 (add-hook 'objc-mode-hook 'objc-mode-customizations)
