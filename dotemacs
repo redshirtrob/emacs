@@ -47,9 +47,17 @@
 (setq ido-everywhere t)
 (ido-mode 1)
 
+;; yasnippets
+(require 'yasnippet)
+(setq yas/trigger-key (kbd "C-c <kp-multiply>"))
+(yas/initialize)
+
+;; I need to figure out why this makes emacs so slow.
+;; (setq yas/root-directory '("~/.emacs.d/yasnippet"))
+;; (mapc 'yas/load-directory yas/root-directory)
+
 ;; auto-complete
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins/auto-complete")
 (ac-config-default)
 
 (setq-default ac-sources '(ac-source-abbrev ac-source-dictionary ac-source-words-in-same-mode-buffers))
