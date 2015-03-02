@@ -42,6 +42,7 @@
 ;; Perspective
 (persp-mode)
 (require 'persp-projectile)
+(define-key projectile-mode-map (kbd "C-c p B") 'projectile-persp-switch-project)
 
 (setq redisplay-preemption-period nil)
 (electric-pair-mode +1)
