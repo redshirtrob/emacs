@@ -39,6 +39,10 @@
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
 
+;; Perspective
+(persp-mode)
+(require 'persp-projectile)
+
 (setq redisplay-preemption-period nil)
 (electric-pair-mode +1)
 
