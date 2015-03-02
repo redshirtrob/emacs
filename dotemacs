@@ -16,6 +16,7 @@
 (load-library "package-extensions")
 (load-library "commands")
 (load-library "c-mode-hacks")
+(load-library "clojure-mode-hacks")
 (load-library "emacs-lisp-mode-hacks")
 (load-library "go-mode-hacks")
 (load-library "html-mode-hacks")
@@ -24,6 +25,19 @@
 (load-library "text-mode-hacks")
 (load-library "web-mode-hacks")
 (load-library "ekeys")
+
+;; Helm
+(require 'helm-config)
+
+;; Helm Dash
+(require 'helm-dash)
+(setq helm-dash-common-docsets '("Clojure" "iOS-8.1"))
+(setq helm-dash-browser-func 'w3m)
+
+;; Enable projectile
+(projectile-global-mode)
+(setq projectile-completion-system 'helm)
+(helm-projectile-on)
 
 (setq redisplay-preemption-period nil)
 (electric-pair-mode +1)
