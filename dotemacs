@@ -26,6 +26,7 @@
 (load-library "text-mode-hacks")
 (load-library "web-mode-hacks")
 (load-library "ekeys")
+(load-library "workspace")
 
 ;; Helm
 (require 'helm)
@@ -54,24 +55,6 @@
 (require 'helm-dash)
 (setq helm-dash-common-docsets '("Clojure" "iOS-8.1"))
 (setq helm-dash-browser-func 'w3m)
-
-;; Enable projectile
-(projectile-global-mode)
-(setq projectile-completion-system 'helm)
-(helm-projectile-on)
-
-;; Perspective
-(require 'perspective)
-(persp-mode)
-(require 'persp-projectile)
-(define-key projectile-mode-map (kbd "C-c p B") 'projectile-persp-switch-project)
-(define-key persp-mode-map (kbd "C-x x C-n") 'persp-next)
-(define-key persp-mode-map (kbd "C-x x C-p") 'persp-prev)
-
-;; `helm-buffers-list--match-fn' is void, so we alias it to the default
-;; match function
-(defalias 'helm-buffers-list--match-fn 'helm-buffers-match-function)
-(global-set-key (kbd "C-x b") 'helm-projectile-switch-to-buffer)
 
 (setq redisplay-preemption-period nil)
 (electric-pair-mode +1)
