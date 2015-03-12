@@ -27,6 +27,7 @@
 (load-library "web-mode-hacks")
 (load-library "ekeys")
 (load-library "workspace")
+(load-library "perspective-hacks")
 
 ;; Helm
 (require 'helm)
