@@ -68,3 +68,13 @@ Wrap to the beginning if necessary."
 (add-hook 'persp-created-hook 'fixup-scratch-buffer-hook)
 
 (global-set-key (kbd "C-x C-b") 'helm-projectile-switch-to-buffer)
+
+;; I want a separate shell for each perspective
+(defun persp-switch-to-shell ()
+  "Create a shell unique to the current perspective."
+  (interactive)
+  (let* ((name (persp-name persp-curr))
+         (shell-name (concat "*shell* (" name ")")))
+    (shell shell-name)))
+
+(define-key persp-mode-map (kbd "C-x x z") 'persp-switch-to-shell)
