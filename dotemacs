@@ -31,6 +31,7 @@
 (load-library "ekeys")
 (load-library "workspace")
 (load-library "perspective-hacks")
+(load-library "org-mode-hacks")
 
 ;; Helm
 (require 'helm)
