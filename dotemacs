@@ -7,6 +7,9 @@
                               (eq system-type 'gnu/linux))
                           "/home/rob/")
                          (t "/home/rob/")))
+
+(defvar ws-root (concat emacs-root "ws/"))
+
 (require 'cl)
 (cl-labels
     ((add-path (p) (add-to-list 'load-path (concat emacs-root p))))
@@ -27,6 +30,7 @@
 (load-library "web-mode-hacks")
 (load-library "ekeys")
 (load-library "workspace")
+(load-library "perspective-hacks")
 
 ;; Helm
 (require 'helm)
