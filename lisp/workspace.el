@@ -77,4 +77,11 @@ Wrap to the beginning if necessary."
          (shell-name (concat "*shell* (" name ")")))
     (shell shell-name)))
 
+(defun persp-switch-to-ansi-term ()
+  "Create an ansi-term unique to the current perspective."
+  (interactive)
+  (let* ((name (persp-name persp-curr))
+         (shell-name (concat "ansi-term (" name ")")))
+    (ansi-term "/usr/local/bin/zsh" shell-name)))
+
 (define-key persp-mode-map (kbd "C-x x z") 'persp-switch-to-shell)
