@@ -28,3 +28,9 @@ Can be customized for each major mode.")
            (new-that-buffer this-buffer))
       (set-window-buffer this-window new-this-buffer)
       (set-window-buffer that-window new-that-buffer))))
+
+(defun osx-copy-region-to-clipboard ()
+  "Copy current region to the OS X clipboard."
+  (interactive)
+  (when (eq system-type 'darwin)
+    (shell-command-on-region (region-beginning) (region-end) "pbcopy")))

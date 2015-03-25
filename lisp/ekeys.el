@@ -6,3 +6,5 @@
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c\C-m" 'execute-extended-command)
 (global-set-key (kbd "C-c y") 'balance-windows)
+(global-set-key (kbd "M-C") 'osx-copy-region-to-clipboard)
+(global-set-key (kbd "C-x m") 'magit-status)
