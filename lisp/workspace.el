@@ -76,12 +76,18 @@ Wrap to the beginning if necessary."
   (let* ((name (persp-name persp-curr))
          (shell-name (concat "*shell* (" name ")")))
     (shell shell-name)))
+(define-key persp-mode-map (kbd "C-x x l") 'persp-switch-to-shell)
 
 (defun persp-switch-to-ansi-term ()
-  "Create an ansi-term unique to the current perspective."
+  "Create an ansi-term unique to the current perspective.  Requires
+`zsh-path' to be the path to the zsh executable."
   (interactive)
   (let* ((name (persp-name persp-curr))
-         (shell-name (concat "ansi-term (" name ")")))
-    (ansi-term "/usr/local/bin/zsh" shell-name)))
+         (ansi-name (concat "ansi-term (" name ")"))
+         (ansi-buffer-name (concat "*" ansi-name "*"))
+         (ansi-buffer (get-buffer ansi-buffer-name)))
+    (if (eq ansi-buffer nil)
+          (ansi-term zsh-path ansi-name)
+        (switch-to-buffer ansi-buffer))))
 
-(define-key persp-mode-map (kbd "C-x x z") 'persp-switch-to-shell)
+(define-key persp-mode-map (kbd "C-x x z") 'persp-switch-to-ansi-term)

@@ -142,3 +142,10 @@
 (setq inferior-lisp-program "/usr/local/bin/sbcl")
 
 (load-library "~/.customizations") ;; Things that change from machine to machine
+
+;; Make ansi-term work nicely on OS X
+;; Be sure to run the following command once after each emacs upgrade, otherwise,
+;; weird characters will show up in ansi-term when using zsh.
+;;
+;; tic -o ~/.terminfo /usr/local/Cellar/emacs/24.4/share/emacs/24.4/etc/e/eterm-color.ti
+(when (eq system-type 'darwin) (setq system-uses-terminfo nil))
