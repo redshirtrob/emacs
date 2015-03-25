@@ -114,8 +114,6 @@
 (line-number-mode t)
 (column-number-mode t)
 (size-indication-mode t)
-(display-time)
-(setq display-time-24hr-format t)
 (global-hi-lock-mode 1)
 
 (show-paren-mode 1)

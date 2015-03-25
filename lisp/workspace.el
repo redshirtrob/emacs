@@ -12,6 +12,8 @@
 (require 'perspective)
 (persp-mode)
 
+(setq projectile-mode-line '(:eval (format " Prj[%s]" (projectile-project-name))))
+
 (require 'persp-projectile)
 (define-key projectile-mode-map (kbd "C-x C-p") 'projectile-persp-switch-project)
 
