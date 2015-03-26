@@ -62,7 +62,8 @@
 
 ;; Helm Dash
 (require 'helm-dash)
-(setq helm-dash-common-docsets '("Clojure" "iOS-8.1"))
+(setq helm-dash-docset-path '(expand-file-name "~/.docsets"))
+(setq helm-dash-common-docsets '("Clojure" "iOS" "Emacs Lisp" "Bootstrap 3"))
 (setq helm-dash-browser-func 'w3m)
 
 (setq redisplay-preemption-period nil)
