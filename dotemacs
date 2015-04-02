@@ -36,6 +36,7 @@
 (load-library "workspace")
 (load-library "perspective-hacks")
 (load-library "org-mode-hacks")
+(load-library "restclient-hacks")
 
 ;; Helm
 (require 'helm)
@@ -63,7 +64,7 @@
 ;; Helm Dash
 (require 'helm-dash)
 (setq helm-dash-docset-path '(expand-file-name "~/.docsets"))
-(setq helm-dash-common-docsets '("Clojure" "iOS" "Emacs Lisp" "Bootstrap 3"))
+(setq helm-dash-common-docsets '("Clojure" "iOS" "Emacs Lisp" "Bootstrap 3" "Android"))
 (setq helm-dash-browser-func 'w3m)
 
 (setq redisplay-preemption-period nil)
