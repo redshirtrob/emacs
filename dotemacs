@@ -1,7 +1,7 @@
 (require 'jka-compr)
 
 ;; For development, makes it easy to work on local versions of these packages
-(setq package-load-list '((perspective nil) (persp-projectile nil) all))
+(setq package-load-list '((perspective nil) (persp-projectile nil) (restclient nil) all))
 
 ;; Track my home directory across platforms
 (defvar emacs-root (cond ((eq system-type 'darwin)
@@ -19,7 +19,8 @@
   (add-path "emacs/lisp")
   (add-path "ws/slime")
   (add-path "ws/projectile")
-  (add-path "ws/perspective-el"))
+  (add-path "ws/perspective-el")
+  (add-path "ws/restclient.el"))
 
 (load-library "package-extensions")
 (load-library "commands")
