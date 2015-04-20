@@ -1,3 +1,4 @@
+;; Compression library
 (require 'jka-compr)
 
 ;; For development, makes it easy to work on local versions of these packages
@@ -24,6 +25,7 @@
 
 (load-library "package-extensions")
 (load-library "commands")
+(load-library "company-mode-hacks")
 (load-library "c-mode-hacks")
 (load-library "clojure-mode-hacks")
 (load-library "emacs-lisp-mode-hacks")
@@ -72,26 +74,6 @@
 
 (setq redisplay-preemption-period nil)
 (electric-pair-mode +1)
-
-;; yasnippets
-(require 'yasnippet)
-(setq yas/trigger-key (kbd "C-c <kp-multiply>"))
-(yas/initialize)
-
-;; I need to figure out why this makes emacs so slow.
-;; (setq yas/root-directory '("~/.emacs.d/yasnippet"))
-;; (mapc 'yas/load-directory yas/root-directory)
-
-;; auto-complete
-(require 'auto-complete-config)
-(ac-config-default)
-
-(setq-default ac-sources '(ac-source-abbrev ac-source-dictionary ac-source-words-in-same-mode-buffers))
-(add-hook 'emacs-lisp-mode-hook 'ac-emacs-lisp-mode-setup)
-(add-hook 'c-mode-common-hook 'ac-cc-mode-setup)
-(add-hook 'auto-complete-mode-hook 'ac-common-setup)
-(global-auto-complete-mode t)
-(add-to-list 'ac-modes 'objc-mode)
 
 ;; Remove trailing whitespace on file save
 ;;(add-hook 'before-save-hook 'delete-trailing-whitespace)

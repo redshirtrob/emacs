@@ -18,7 +18,7 @@
 ;; http://batsov.com/articles/2012/02/19/package-management-in-emacs-the-good-the-bad-and-the-ugly/
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defvar prelude-packages
-  '(ack-and-a-half auto-complete autopair concurrent ctable dash deferred
+  '(ack-and-a-half autopair concurrent ctable dash deferred
 		   epc ipython popup python-django python-mode python-pylint
 		   pyvirtualenv s virtualenv yasnippet)
   "A list of packages to ensure are installed at launch.")
