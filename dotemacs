@@ -17,6 +17,7 @@
 (cl-labels
     ((add-path (p) (add-to-list 'load-path (concat emacs-root p))))
   (add-path "emacs/lisp")
+  (add-path "ws/ac-irony")
   (add-path "ws/slime")
   (add-path "ws/projectile")
   (add-path "ws/perspective-el")
@@ -29,6 +30,7 @@
 (load-library "emacs-lisp-mode-hacks")
 (load-library "go-mode-hacks")
 (load-library "html-mode-hacks")
+(load-library "irony-mode-hacks")
 (load-library "objc-mode-hacks")
 (load-library "shell-script-mode-hacks")
 (load-library "text-mode-hacks")
@@ -92,8 +94,20 @@
 (global-auto-complete-mode t)
 (add-to-list 'ac-modes 'objc-mode)
 
+(require 'ac-irony)
+(defun my-ac-irony-setup ()
+  ;; be cautious, if yas is not enabled before (auto-complete-mode 1), overlays
+  ;; *may* persist after an expansion.
+  (yas-minor-mode 1)
+  (auto-complete-mode 1)
+
+  (add-to-list 'ac-sources 'ac-source-irony)
+  (define-key irony-mode-map (kbd "M-RET") 'ac-complete-irony-async))
+
+(add-hook 'irony-mode-hook 'my-ac-irony-setup)
+
 ;; Remove trailing whitespace on file save
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+;;(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (prefer-coding-system 'utf-8)
 (set-face-attribute 'default nil :height 90)
