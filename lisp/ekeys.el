@@ -9,3 +9,4 @@
 (global-set-key (kbd "M-C") 'osx-copy-region-to-clipboard)
 (global-set-key (kbd "C-c m") 'magit-status)
 (global-set-key (kbd "C-c d") 'helm-dash)
+(global-set-key (kbd "C-c ;") 'iedit-mode)

@@ -39,6 +39,7 @@
 (load-library "org-mode-hacks")
 (load-library "restclient-hacks")
 (load-library "javascript-mode-hacks")
+(load-library "python-mode-hacks")
 
 ;; Helm
 (require 'helm)
@@ -93,7 +94,7 @@
 (add-to-list 'ac-modes 'objc-mode)
 
 ;; Remove trailing whitespace on file save
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+;;(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (prefer-coding-system 'utf-8)
 (set-face-attribute 'default nil :height 90)
