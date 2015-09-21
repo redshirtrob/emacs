@@ -11,3 +11,6 @@
   (set-face-attribute 'web-mode-part-face nil :foreground "Red"))
 
 (add-hook 'web-mode-hook 'web-mode-customizations)
+
+(setq auto-mode-alist
+      (cons '("\\.html$" . web-mode) auto-mode-alist))
