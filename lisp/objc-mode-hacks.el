@@ -25,6 +25,13 @@ Assumes both files are in the same directory."
       (objc-jump-to-extension "m")
     (objc-jump-to-extension "h")))
 
+(defun insert-nsstring-constant (name)
+  "Insert an NSString constant"
+  (interactive
+   (let ((constant-name
+          (read-string "Enter constant name: " (file-name-base (buffer-file-name)))))
+     (insert (format "static NSString *const %s = @\"%s\";\n" constant-name constant-name)))))
+
 (defun objc-mode-customizations ()
   (define-key objc-mode-map (kbd "C-c C-w") 'copy-word-under-cursor)
   (define-key objc-mode-map (kbd "C-c /") 'uncomment-region)
