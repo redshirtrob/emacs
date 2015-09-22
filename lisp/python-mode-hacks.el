@@ -1,4 +1,7 @@
-# May need to eval (jedi:start-server)
+;; May need to eval (jedi:start-server)
+
+(require 'jedi)
+(jedi:start-server)
 
 (defun python-mode-hacks ()
   (add-to-list 'company-backends 'company-jedi)
