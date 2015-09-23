@@ -8,7 +8,8 @@
   (set-face-attribute 'web-mode-html-attr-equal-face nil :foreground "Black")
   (set-face-attribute 'web-mode-html-attr-name-face nil :foreground "Yellow")
   (set-face-attribute 'web-mode-part-string-face nil :foreground "Red")
-  (set-face-attribute 'web-mode-part-face nil :foreground "Red"))
+  (set-face-attribute 'web-mode-part-face nil :foreground "Red")
+  (setq web-mode-markup-indent-offset 2))
 
 (add-hook 'web-mode-hook 'web-mode-customizations)
 
