@@ -149,6 +149,10 @@
   uniquify-buffer-name-style 'post-forward
   uniquify-separator ":")
 
+;; Enable editorconfig
+(require 'editorconfig)
+(editorconfig-mode 1)
+
 ;; Eliminate some annoying prompts
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (fset 'yes-or-no-p 'y-or-n-p)
