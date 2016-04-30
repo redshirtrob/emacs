@@ -34,13 +34,14 @@
 (load-library "shell-script-mode-hacks")
 (load-library "text-mode-hacks")
 (load-library "web-mode-hacks")
-(load-library "ekeys")
 (load-library "workspace")
 (load-library "perspective-hacks")
 (load-library "org-mode-hacks")
 (load-library "restclient-hacks")
 (load-library "javascript-mode-hacks")
 (load-library "python-mode-hacks")
+(load-library "ropemacs-hacks")
+(load-library "ekeys")
 
 ;; Helm
 (require 'helm)

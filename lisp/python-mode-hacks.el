@@ -10,4 +10,6 @@
 (add-hook 'python-mode-hook 'python-mode-hacks)
 (add-hook 'python-mode-hook 'jedi:setup)
 
+(setq py-load-pymacsp nil)
+
 (setq jedi:complete-on-dot t)
