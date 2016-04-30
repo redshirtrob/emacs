@@ -16,6 +16,7 @@
 (require 'cl)
 (cl-labels
     ((add-path (p) (add-to-list 'load-path (concat emacs-root p))))
+  (add-path "ws/ebnf-mode")
   (add-path "emacs/lisp")
   (add-path "ws/ac-irony")
   (add-path "ws/slime"))
@@ -24,6 +25,7 @@
 (load-library "commands")
 (load-library "c-mode-hacks")
 (load-library "clojure-mode-hacks")
+(load-library "ebnf-mode")
 (load-library "emacs-lisp-mode-hacks")
 (load-library "go-mode-hacks")
 (load-library "html-mode-hacks")
