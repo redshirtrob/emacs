@@ -3,23 +3,20 @@
 ;; For development, makes it easy to work on local versions of these packages
 ;;(setq package-load-list '((perspective nil) (persp-projectile nil) (restclient nil) all))
 
-;; Track my home directory across platforms
-(defvar emacs-root (cond ((eq system-type 'darwin)
-                          "/Users/rob/")
-                         ((or (eq system-type 'linux)
-                              (eq system-type 'gnu/linux))
-                          "/home/rob/")
-                         (t "/home/rob/")))
-
-(defvar ws-root (concat emacs-root "ws/"))
+;; Configure main workspace
+;; `HOME` shoudl be set in .bashrc or .zshrc (or .zsh-customizations)
+;; `WORKSPACE_DIR` should be set in .bashrc or .zshrc (or .zsh-customizations)
+(defvar emacs-root (concat (getenv "HOME") "/"))
+(defvar workspace-dir (getenv "WORKSPACE_DIR"))
+(defvar ws-root (concat emacs-root workspace-dir "/"))
 
 (require 'cl)
 (cl-labels
     ((add-path (p) (add-to-list 'load-path (concat emacs-root p))))
-  (add-path "ws/ebnf-mode")
+  (add-path (concat workspace-dir "/ebnf-mode"))
   (add-path "emacs/lisp")
-  (add-path "ws/ac-irony")
-  (add-path "ws/slime"))
+  (add-path (concat workspace-dir "/ac-irony")) ;; git@github.com:Sarcasm/ac-irony.git
+  (add-path (concat workspace-dir "/slime")))
 
 (load-library "package-extensions")
 (load-library "commands")
@@ -190,3 +187,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:background nil)))))
+
+;; see `man manpath`
+(global-set-key [(f1)] (lambda () (interactive) (manual-entry (current-word))))
