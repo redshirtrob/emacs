@@ -13,5 +13,10 @@
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.nunjucks?\\'" . web-mode))
 (setq web-mode-engines-alist '(("django" . "\\.nunjucks\\'")))
+
+;; React Hacks
+(add-to-list 'auto-mode-alist '("\\react.*.js[x]?\\'" . web-mode))
+(setq web-mode-content-types-alist '(("jsx"  . "\\react.*.js[x]?\\'")))
+
 (add-hook 'web-mode-hook 'web-mode-customizations)
 
