@@ -38,6 +38,8 @@
 (load-library "javascript-mode-hacks")
 (load-library "python-mode-hacks")
 (load-library "ropemacs-hacks")
+(load-library "neotree-hacks")
+(load-library "mouse-hacks")
 (load-library "ekeys")
 
 ;; Helm
