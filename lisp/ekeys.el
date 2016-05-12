@@ -13,3 +13,4 @@
 (global-set-key (kbd "C-c /") 'comment-region)
 (global-set-key (kbd "C-c \\") 'uncomment-region)
 (global-set-key (kbd "C-c w") 'whitespace-mode)
+(global-set-key (kbd "C-c C-t") 'neotree-toggle)
