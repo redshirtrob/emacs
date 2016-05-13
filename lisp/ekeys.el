@@ -14,3 +14,5 @@
 (global-set-key (kbd "C-c \\") 'uncomment-region)
 (global-set-key (kbd "C-c w") 'whitespace-mode)
 (global-set-key (kbd "C-c C-x") 'neotree-toggle)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "M-x") 'helm-M-x)
