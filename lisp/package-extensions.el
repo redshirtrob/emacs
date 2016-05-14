@@ -1,3 +1,11 @@
+;;; package-extensions --- Configure Emacs Package Manager
+
+;;; Commentary:
+
+;;; Code:
+
+(require 'package)
+
 ;; Configure additional package archives
 (package-initialize)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
@@ -21,7 +29,7 @@
   '(2048-game ack-and-a-half ag async auto-complete autopair caml cider cl-generic
               clojure-mode company company-c-headers company-cmake company-go company-irony
               company-jedi company-restclient concurrent ctable dash deferred diminish
-              editorconfig  emmet-mode epc epl
+              editorconfig  emmet-mode epc epl flycheck flycheck-tip
               flx flx-ido git-commit go-autocomplete go-mode go-snippets handlebars-mode
               helm helm-ack helm-company helm-core helm-dash helm-git helm-projectile helm-themes
               heroku iedit ipython irony jedi jedi-core magit magit-popup markdown-mode paredit
@@ -47,3 +55,4 @@
       (package-install p))))
 
 (provide 'prelude-packages)
+;;; package-extensions.el ends here
