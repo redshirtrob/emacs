@@ -155,6 +155,12 @@
 (require 'editorconfig)
 (editorconfig-mode 1)
 
+;; Enable flycheck
+(require 'flycheck)
+
+;; turn on flychecking globally
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
 ;; Eliminate some annoying prompts
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (fset 'yes-or-no-p 'y-or-n-p)
