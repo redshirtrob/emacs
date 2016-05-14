@@ -1,3 +1,9 @@
+;;; mouse-hacks --- Configure mouse mode
+
+;;; Commentary:
+
+;;; Code:
+
 (unless window-system
   (require 'mouse)
   (xterm-mouse-mode t)
@@ -9,3 +15,7 @@
                               (scroll-up 1)))
   (defun track-mouse (e))
   (setq mouse-sel-mode t))
+
+(provide 'mouse-hacks)
+;;; mouse-hacks.el ends here
+
