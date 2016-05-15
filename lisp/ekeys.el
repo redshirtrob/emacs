@@ -1,4 +1,11 @@
-;; Key binding customizations all in one place
+;;; ekeys --- Configure key bindings
+
+;;; Commentary:
+;;;
+;;; Key binding customizations all in one place.
+
+;;; Code:
+
 (global-set-key (kbd "C-x j") 'python-django-open-project)
 (global-set-key (kbd "C-c C-w") 'copy-word-under-cursor)
 (global-set-key (kbd "C-x p") 'select-previous-window)
@@ -16,3 +23,6 @@
 (global-set-key (kbd "C-c C-x") 'neotree-toggle)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "M-x") 'helm-M-x)
+
+(provide 'ekeys)
+;;; ekeys.el ends here
