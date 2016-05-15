@@ -1,3 +1,9 @@
+;;; html-mode-hacks --- Configure html mode
+
+;;; Commentary:
+
+;;; Code:
+
 (defun html-mode-customizations()
   (auto-fill-mode -1))
 
@@ -6,3 +12,6 @@
 
 ;; https://github.com/smihica/emmet-mode
 (add-hook 'html-mode-hook 'emmet-mode)
+
+(provide 'html-mode-hacks)
+;;; html-mode-hacks.el ends here
