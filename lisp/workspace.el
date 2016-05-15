@@ -1,5 +1,10 @@
-;; Configure helm/perspective/projectile to approximate the
-;; concept of workspaces.
+;;; workspace --- Create a workspace-like environment
+
+;;; Commentary:
+;;; Configure helm/perspective/projectile to approximate the
+;;; concept of workspaces.
+
+;;; Code:
 
 (require 'helm)
 
@@ -55,7 +60,8 @@ Wrap to the beginning if necessary."
 ;; scratch buffers will need to be moved over manually by
 ;; invoking `cd' on the buffer.
 (defun fixup-scratch-buffer-hook ()
-  "Make sure the perspective scratch buffers's
+  "Change the name of scratch buffer.
+Make sure the perspective scratch buffers's
 `default-directory' matches the project root."
   (let* ((name (persp-name persp-curr))
          ;; This should really be accessible via perspective.  If
@@ -81,8 +87,8 @@ Wrap to the beginning if necessary."
 (define-key persp-mode-map (kbd "C-x x l") 'persp-switch-to-shell)
 
 (defun persp-switch-to-ansi-term ()
-  "Create an ansi-term unique to the current perspective.  Requires
-`zsh-path' to be the path to the zsh executable."
+  "Create an `ansi-term' unique to the current perspective.
+Requires `zsh-path' to be the path to the zsh executable."
   (interactive)
   (let* ((name (persp-name persp-curr))
          (ansi-name (concat "ansi-term (" name ")"))
@@ -93,3 +99,6 @@ Wrap to the beginning if necessary."
         (switch-to-buffer ansi-buffer))))
 
 (define-key persp-mode-map (kbd "C-x x z") 'persp-switch-to-ansi-term)
+
+(provide 'workspace)
+;;; workspace.el ends here
