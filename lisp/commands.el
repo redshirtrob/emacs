@@ -1,5 +1,11 @@
+;;; commands --- Some custom commands
+
+;;; Commentary:
+
+;;; Code:
+
 (defun select-previous-window ()
-  "Switch to the previous window"
+  "Switch to the previous window."
   (interactive)
   (select-window (previous-window)))
 
@@ -34,3 +40,6 @@ Can be customized for each major mode.")
   (interactive)
   (when (eq system-type 'darwin)
     (shell-command-on-region (region-beginning) (region-end) "pbcopy")))
+
+(provide 'commands)
+;;; commands.el ends here
