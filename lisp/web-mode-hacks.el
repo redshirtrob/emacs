@@ -75,6 +75,3 @@ See URL `https://github.com/sasstools/sass-lint'."
 
 (provide 'web-mode-hacks)
 ;;; web-mode-hacks.el ends here
-
-
-
