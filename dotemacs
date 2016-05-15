@@ -1,4 +1,16 @@
+;;; package --- dotemacs
+
+;;; Commentary:
+
+;;; Code: 
+
 (require 'jka-compr)
+
+;; https://github.com/purcell/exec-path-from-shell
+;; only need exec-path-from-shell on OSX
+;; this hopefully sets up path and other vars better
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 
 ;; For development, makes it easy to work on local versions of these packages
 ;;(setq package-load-list '((perspective nil) (persp-projectile nil) (restclient nil) all))
@@ -10,7 +22,7 @@
 (defvar workspace-dir (getenv "WORKSPACE_DIR"))
 (defvar ws-root (concat emacs-root workspace-dir "/"))
 
-(require 'cl)
+(require 'cl-lib) ;; Note: if this causes issues, switch to (require 'cl)
 (cl-labels
     ((add-path (p) (add-to-list 'load-path (concat emacs-root p))))
   (add-path (concat workspace-dir "/ebnf-mode"))
@@ -198,3 +210,6 @@
 
 ;; see `man manpath`
 (global-set-key [(f1)] (lambda () (interactive) (manual-entry (current-word))))
+
+(provide 'dotemacs)
+;;; dotemacs ends here
