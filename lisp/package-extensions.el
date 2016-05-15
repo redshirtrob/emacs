@@ -25,7 +25,7 @@
 ;; Install missing packages
 ;; http://batsov.com/articles/2012/02/19/package-management-in-emacs-the-good-the-bad-and-the-ugly/
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defvar prelude-packages
+(defvar local-packages
   '(2048-game ack-and-a-half ag async auto-complete autopair caml cider cl-generic
               clojure-mode company company-c-headers company-cmake company-go company-irony
               company-jedi company-restclient concurrent ctable dash deferred diminish
@@ -39,20 +39,22 @@
               virtualenv w3m web-mode with-editor yasnippet zencoding-mode)
   "A list of packages to ensure are installed at launch.")
 
-(defun prelude-packages-installed-p ()
-  (loop for p in prelude-packages
+(require 'cl-lib) ;; Note: if this causes issues, switch to (require 'cl)
+(defun local-packages-installed-p ()
+  "Check if packages are installed."
+  (loop for p in local-packages
         when (not (package-installed-p p)) do (return nil)
         finally (return t)))
 
-(unless (prelude-packages-installed-p)
+(unless (local-packages-installed-p)
   ;; check for new packages (package versions)
-  (message "%s" "Emacs Prelude is now refreshing its package database...")
+  (message "%s" "Emacs is now refreshing its package database...")
   (package-refresh-contents)
   (message "%s" " done.")
   ;; install the missing packages
-  (dolist (p prelude-packages)
+  (dolist (p local-packages)
     (when (not (package-installed-p p))
       (package-install p))))
 
-(provide 'prelude-packages)
+(provide 'package-extensions)
 ;;; package-extensions.el ends here
