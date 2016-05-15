@@ -1,6 +1,11 @@
-;;;;
-;; Clojure
-;;;;
+;;; clojure-mode-hacks --- Configure clojure-mode
+
+;;; Commentary:
+
+;;; Code:
+
+(require 'clojure-mode)
+(require 'clojure-mode-extra-font-locking)
 
 ;; Enable paredit for Clojure
 (add-hook 'clojure-mode-hook 'enable-paredit-mode)
@@ -8,9 +13,6 @@
 ;; This is useful for working with camel-case tokens, like names of
 ;; Java classes (e.g. JavaClassName)
 (add-hook 'clojure-mode-hook 'subword-mode)
-
-;; A little more syntax highlighting
-(require 'clojure-mode-extra-font-locking)
 
 ;; syntax hilighting for midje
 (add-hook 'clojure-mode-hook
@@ -58,6 +60,7 @@
 ;; key bindings
 ;; these help me out with the way I usually develop web apps
 (defun cider-start-http-server ()
+  "Start cider http server."
   (interactive)
   (cider-load-current-buffer)
   (let ((ns (cider-current-ns)))
@@ -67,10 +70,12 @@
 
 
 (defun cider-refresh ()
+  "Refersh cider."
   (interactive)
   (cider-interactive-eval (format "(user/reset)")))
 
 (defun cider-user-ns ()
+  "Set cider namespace."
   (interactive)
   (cider-repl-set-ns "user"))
 
@@ -80,3 +85,6 @@
      (define-key clojure-mode-map (kbd "C-M-r") 'cider-refresh)
      (define-key clojure-mode-map (kbd "C-c u") 'cider-user-ns)
      (define-key cider-mode-map (kbd "C-c u") 'cider-user-ns)))
+
+(provide 'clojure-mode-hacks)
+;;; clojure-mode-hacks.el ends here
