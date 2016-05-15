@@ -35,7 +35,7 @@
               heroku iedit ipython irony jedi jedi-core magit magit-popup markdown-mode paredit
               paredit-everywhere persp-mode persp-projectile perspective pkg-info popup projectile
               python-django python-environment python-mode python-pylint pyvirtualenv queue
-              restclient know-your-http-well s seq slime slime-company spinner tuareg utop
+              restclient know-your-http-well s seq sass-mode scss-mode slime slime-company spinner tuareg utop
               virtualenv w3m web-mode with-editor yasnippet zencoding-mode)
   "A list of packages to ensure are installed at launch.")
 

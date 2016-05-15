@@ -36,6 +36,8 @@
 
 ;; use eslint with web-mode for jsx files
 (flycheck-add-mode 'javascript-eslint 'web-mode)
+(flycheck-add-mode 'javascript-eslint 'js-mode)
+(flycheck-add-mode 'javascript-eslint 'javascript-mode)
 
 ;; customize flycheck temp file prefix
 (setq-default flycheck-temp-prefix ".flycheck")
@@ -53,6 +55,27 @@
 
 (require 'flycheck-tip)
 (flycheck-tip-use-timer 'verbose)
+
+(flycheck-def-config-file-var flycheck-sass-lintrc sass-lint ".sass-lint.yml"
+  :safe #'stringp)
+
+(flycheck-define-checker sass-lint
+    "A SASS (SCSS) checker using Sass Lint (on Node.js).
+See URL `https://github.com/sasstools/sass-lint'."
+    :command ("sass-lint"
+              "--verbose"
+              "--format" "checkstyle"
+              (config-file "--config" flycheck-sass-lintrc)
+              source)
+    :error-parser flycheck-parse-checkstyle
+    :modes (sass-mode scss-mode))
+(add-to-list 'flycheck-checkers 'sass-lint)
+
+;; Configure SCSS
+(require 'sass-mode)
+(autoload 'sass-mode "sass-mode")
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . sass-mode))
+(flycheck-add-mode 'sass-lint 'sass-mode)
 
 (provide 'web-mode-hacks)
 ;;; web-mode-hacks.el ends here
