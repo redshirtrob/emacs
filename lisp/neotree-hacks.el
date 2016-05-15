@@ -1,3 +1,9 @@
+;;; neotree-hacks --- Configure neotree
+
+;;; Commentary:
+
+;;; Code:
+
 (require 'neotree)
 
 (setq neo-theme 'ascii)
@@ -9,3 +15,6 @@
  '(neo-file-link-face ((t . (:inherit default))) t)
  '(neo-button-face ((t . (:inherit dired-directory))) t)
  '(neo-expand-btn-face ((t . (:inherit button))) t))
+
+(provide 'neotree-hacks)
+;;; neotree-hacks.el ends here
