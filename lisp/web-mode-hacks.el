@@ -6,6 +6,8 @@
 
 (require 'web-mode)
 
+(setq js-indent-level 2)
+
 (defun web-mode-customizations ()
   "Customize web-mode."
   (setq web-mode-enable-part-face t)

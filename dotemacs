@@ -47,7 +47,6 @@
 (load-library "perspective-hacks")
 (load-library "org-mode-hacks")
 (load-library "restclient-hacks")
-(load-library "javascript-mode-hacks")
 (load-library "python-mode-hacks")
 (load-library "ropemacs-hacks")
 (load-library "neotree-hacks")
