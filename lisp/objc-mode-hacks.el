@@ -4,8 +4,6 @@
 
 ;;; Code:
 
-(require 'objc-mode)
-
 (setq auto-mode-alist
       (cons '("\\.m$" . objc-mode) auto-mode-alist))
 (setq auto-mode-alist
@@ -44,6 +42,7 @@ Assumes both files are in the same directory."
 
 (defun objc-mode-customizations ()
   "Customize `objc-mode'."
+  (defvar objc-mode-map)
   (define-key objc-mode-map (kbd "C-c C-w") 'copy-word-under-cursor)
   (define-key objc-mode-map (kbd "C-c /") 'uncomment-region)
   (define-key objc-mode-map (kbd "C-c t") 'objc-jump-between-header-source))
