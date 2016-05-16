@@ -36,6 +36,7 @@
 (load-library "clojure-mode-hacks")
 (load-library "ebnf-mode")
 (load-library "emacs-lisp-mode-hacks")
+(load-library "elixir-hacks")
 (load-library "go-mode-hacks")
 (load-library "html-mode-hacks")
 (load-library "irony-mode-hacks")
