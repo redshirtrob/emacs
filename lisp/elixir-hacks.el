@@ -24,9 +24,9 @@ See URL `http://elixir-lang.org/'."
               line-end))
     :modes elixir-mode)
 
-(add-to-list 'flycheck-checkers 'elixir-mix)
+;; (add-to-list 'flycheck-checkers 'elixir-mix)
 
-(add-hook 'elixir-mode-hook 'flycheck-mode)
+;; (add-hook 'elixir-mode-hook 'flycheck-mode)
 (add-hook 'elixir-mode-hook 'alchemist-mode)
 (add-hook 'elixir-mode-hook 'company-mode)
 
