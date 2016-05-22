@@ -7,6 +7,8 @@
 ;;; Code:
 
 (require 'flycheck)
+(require 'elixir-mode)
+(require 'alchemist)
 
 (flycheck-define-checker elixir-mix
     "An Elixir syntax checker using the Elixir interpreter.
