@@ -173,6 +173,10 @@
 ;; turn on flychecking globally
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
+;; turn on dumb-jump-mode
+(require 'dumb-jump)
+(dumb-jump-mode)
+
 ;; Eliminate some annoying prompts
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (fset 'yes-or-no-p 'y-or-n-p)

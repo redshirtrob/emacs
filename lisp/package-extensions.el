@@ -28,7 +28,7 @@
 (defvar local-packages
   '(2048-game ack-and-a-half ag async auto-complete autopair caml cider cl-generic
               clojure-mode company company-c-headers company-cmake company-go company-irony
-              company-jedi company-restclient concurrent ctable dash deferred diminish
+              company-jedi company-restclient concurrent ctable dash deferred diminish dumb-jump
               editorconfig  emmet-mode epc ensime epl flycheck flycheck-elixir flymake-elixir flycheck-tip
               flx flx-ido git-commit go-autocomplete go-mode go-snippets handlebars-mode
               helm helm-ack helm-company helm-core helm-dash helm-git helm-projectile helm-themes

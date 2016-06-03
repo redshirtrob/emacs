@@ -11,6 +11,8 @@
 (defun python-mode-hacks ()
   "Configure `python-mode'."
   (add-to-list 'company-backends 'company-jedi)
+  (local-set-key (kbd "M-.") 'dumb-jump-go)
+  (local-set-key (kbd "M-,") 'dumb-jump-back)
   (local-set-key (kbd "C-]") 'jedi:complete))
 
 (add-hook 'python-mode-hook 'python-mode-hacks)
