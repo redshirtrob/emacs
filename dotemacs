@@ -40,6 +40,7 @@
 (load-library "go-mode-hacks")
 (load-library "html-mode-hacks")
 (load-library "irony-mode-hacks")
+(load-library "jinja2-hacks")
 (load-library "objc-mode-hacks")
 (load-library "shell-script-mode-hacks")
 (load-library "text-mode-hacks")
