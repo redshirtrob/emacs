@@ -78,10 +78,8 @@
       helm-ff-file-name-history-use-recentf t)
 
 (setq helm-ff-skip-boring-files t)
-(setq helm-boring-file-regexp-list
-      '("\\.git$" "\\.hg$" "\\.svn$" "\\.CVS$" "\\._darcs$" "\\.la$" "\\.o$" "~$"
-        "\\.so$" "\\.a$" "\\.elc$" "\\.fas$" "\\.fasl$" "\\.pyc$" "\\.pyo$" "^\\.\\#"
-        "^\\#"))
+(add-to-list 'helm-boring-file-regexp-list '"\\#")
+(add-to-list 'helm-boring-file-regexp-list '"\\.\\#")
 
 (helm-mode 1)
 
