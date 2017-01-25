@@ -77,6 +77,12 @@
       helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
       helm-ff-file-name-history-use-recentf t)
 
+(setq helm-ff-skip-boring-files t)
+(setq helm-boring-file-regexp-list
+      '("\\.git$" "\\.hg$" "\\.svn$" "\\.CVS$" "\\._darcs$" "\\.la$" "\\.o$" "~$"
+        "\\.so$" "\\.a$" "\\.elc$" "\\.fas$" "\\.fasl$" "\\.pyc$" "\\.pyo$" "^\\.\\#"
+        "^\\#"))
+
 (helm-mode 1)
 
 ;; Helm Dash
