@@ -82,5 +82,8 @@ See URL `https://github.com/sasstools/sass-lint'."
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . sass-mode))
 (flycheck-add-mode 'sass-lint 'sass-mode)
 
+;; Configure Keys
+(global-set-key (kbd "C-c C-v") 'web-mode-element-close)
+
 (provide 'web-mode-hacks)
 ;;; web-mode-hacks.el ends here
