@@ -12,9 +12,6 @@
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 
-(require 'el-get)
-(el-get 'sync)
-
 ;; Install missing packages
 ;; http://batsov.com/articles/2012/02/19/package-management-in-emacs-the-good-the-bad-and-the-ugly/
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -22,7 +19,7 @@
   '(2048-game ack-and-a-half ag async auto-complete autopair caml cider cl-generic
               clojure-mode company company-c-headers company-cmake company-go company-irony
               company-jedi company-restclient concurrent ctable dash deferred diminish dumb-jump
-              editorconfig  emmet-mode epc ensime epl erlang flycheck flycheck-elixir flymake-elixir flycheck-popup-tip flycheck-tip
+              editorconfig emmet-mode epc ensime epl erlang flycheck flycheck-elixir flymake-elixir flycheck-popup-tip flycheck-tip
               flx flx-ido git-commit go-autocomplete go-mode go-snippets handlebars-mode
               helm helm-ack helm-company helm-core helm-dash helm-git helm-projectile helm-themes
               heroku iedit ipython irony jedi jedi-core magit magit-popup markdown-mode neotree paredit
