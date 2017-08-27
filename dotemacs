@@ -1,16 +1,23 @@
-;;; package --- dotemacs
+;; package --- dotemacs
 
 ;;; Commentary:
 
-;;; Code: 
+;;; Code:
+
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
 
 (require 'jka-compr)
 
 ;; https://github.com/purcell/exec-path-from-shell
 ;; only need exec-path-from-shell on OSX
 ;; this hopefully sets up path and other vars better
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
+;;(when (memq window-system '(mac ns))
+;;  (exec-path-from-shell-initialize))
 
 ;; For development, makes it easy to work on local versions of these packages
 ;;(setq package-load-list '((perspective nil) (persp-projectile nil) (restclient nil) all))
@@ -19,7 +26,7 @@
 ;; `HOME` shoudl be set in .bashrc or .zshrc (or .zsh-customizations)
 ;; `WORKSPACE_DIR` should be set in .bashrc or .zshrc (or .zsh-customizations)
 (defvar emacs-root (concat (getenv "HOME") "/"))
-(defvar workspace-dir (getenv "WORKSPACE_DIR"))
+(defvar workspace-dir (if (getenv "WORKSPACE_DIR") (getenv "WORKSPACE_DIR") "ws"))
 (defvar ws-root (concat emacs-root workspace-dir "/"))
 
 (require 'cl-lib) ;; Note: if this causes issues, switch to (require 'cl)
@@ -95,7 +102,7 @@
 ;; yasnippets
 (require 'yasnippet)
 (setq yas/trigger-key (kbd "C-c <kp-multiply>"))
-(yas/initialize)
+(yas-global-mode 1)
 
 ;; I need to figure out why this makes emacs so slow.
 ;; (setq yas/root-directory '("~/.emacs.d/yasnippet"))
@@ -200,7 +207,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("96998f6f11ef9f551b427b8853d947a7857ea5a578c75aa9c4e7c73fe04d10b4" "18a33cdb764e4baf99b23dcd5abdbf1249670d412c6d3a8092ae1a7b211613d5" "0c29db826418061b40564e3351194a3d4a125d182c6ee5178c237a7364f0ff12" "46fd293ff6e2f6b74a5edf1063c32f2a758ec24a5f63d13b07a20255c074d399" "3cd28471e80be3bd2657ca3f03fbb2884ab669662271794360866ab60b6cb6e6" "3cc2385c39257fed66238921602d8104d8fd6266ad88a006d0a4325336f5ee02" "e9776d12e4ccb722a2a732c6e80423331bcb93f02e089ba2a4b02e85de1cf00e" "72a81c54c97b9e5efcc3ea214382615649ebb539cb4f2fe3a46cd12af72c7607" "58c6711a3b568437bab07a30385d34aacf64156cc5137ea20e799984f4227265" "3d5ef3d7ed58c9ad321f05360ad8a6b24585b9c49abcee67bdcbb0fe583a6950" "b3775ba758e7d31f3bb849e7c9e48ff60929a792961a2d536edec8f68c671ca5" "7bde52fdac7ac54d00f3d4c559f2f7aa899311655e7eb20ec5491f3b5c533fe8" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "31a01668c84d03862a970c471edbd377b2430868eccf5e8a9aec6831f1a0908d" "1297a022df4228b81bc0436230f211bad168a117282c20ddcba2db8c6a200743" "4af6fad34321a1ce23d8ab3486c662de122e8c6c1de97baed3aa4c10fe55e060" "0ba649556dc51762e6794b92017f6f7406754ae3136eafef686d81c6da176cc5" "a2e7b508533d46b701ad3b055e7c708323fb110b6676a8be458a758dd8f24e27" "ba9be9caf9aa91eb34cf11ad9e8c61e54db68d2d474f99a52ba7e87097fa27f5" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" "987b709680284a5858d5fe7e4e428463a20dfabe0a6f2a6146b3b8c7c529f08b" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
+    ("9b59e147dbbde5e638ea1cde5ec0a358d5f269d27bd2b893a0947c4a867e14c1" "3b24f986084001ae46aa29ca791d2bc7f005c5c939646d2b800143526ab4d323" "96998f6f11ef9f551b427b8853d947a7857ea5a578c75aa9c4e7c73fe04d10b4" "18a33cdb764e4baf99b23dcd5abdbf1249670d412c6d3a8092ae1a7b211613d5" "0c29db826418061b40564e3351194a3d4a125d182c6ee5178c237a7364f0ff12" "46fd293ff6e2f6b74a5edf1063c32f2a758ec24a5f63d13b07a20255c074d399" "3cd28471e80be3bd2657ca3f03fbb2884ab669662271794360866ab60b6cb6e6" "3cc2385c39257fed66238921602d8104d8fd6266ad88a006d0a4325336f5ee02" "e9776d12e4ccb722a2a732c6e80423331bcb93f02e089ba2a4b02e85de1cf00e" "72a81c54c97b9e5efcc3ea214382615649ebb539cb4f2fe3a46cd12af72c7607" "58c6711a3b568437bab07a30385d34aacf64156cc5137ea20e799984f4227265" "3d5ef3d7ed58c9ad321f05360ad8a6b24585b9c49abcee67bdcbb0fe583a6950" "b3775ba758e7d31f3bb849e7c9e48ff60929a792961a2d536edec8f68c671ca5" "7bde52fdac7ac54d00f3d4c559f2f7aa899311655e7eb20ec5491f3b5c533fe8" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "31a01668c84d03862a970c471edbd377b2430868eccf5e8a9aec6831f1a0908d" "1297a022df4228b81bc0436230f211bad168a117282c20ddcba2db8c6a200743" "4af6fad34321a1ce23d8ab3486c662de122e8c6c1de97baed3aa4c10fe55e060" "0ba649556dc51762e6794b92017f6f7406754ae3136eafef686d81c6da176cc5" "a2e7b508533d46b701ad3b055e7c708323fb110b6676a8be458a758dd8f24e27" "ba9be9caf9aa91eb34cf11ad9e8c61e54db68d2d474f99a52ba7e87097fa27f5" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" "987b709680284a5858d5fe7e4e428463a20dfabe0a6f2a6146b3b8c7c529f08b" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
  '(magit-diff-use-overlays nil)
  '(magit-use-overlays nil))
 (custom-set-faces
@@ -208,7 +215,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background nil)))))
+ '(default ((t (:background nil))))
+ '(neo-banner-face ((t :inherit shadow)))
+ '(neo-button-face ((t :inherit dired-directory)))
+ '(neo-dir-link-face ((t :inherit dired-directory)))
+ '(neo-expand-btn-face ((t :inherit button)))
+ '(neo-file-link-face ((t :inherit default)))
+ '(neo-header-face ((t :inherit shadow)))
+ '(neo-root-dir-face ((t :inherit link-visited :underline nil))))
 
 ;; see `man manpath`
 (global-set-key [(f1)] (lambda () (interactive) (manual-entry (current-word))))
