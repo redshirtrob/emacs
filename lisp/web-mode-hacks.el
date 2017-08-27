@@ -58,9 +58,6 @@
               (append flycheck-disabled-checkers
                       '(json-jsonlist)))
 
-(require 'flycheck-tip)
-(flycheck-tip-use-timer 'verbose)
-
 (flycheck-def-config-file-var flycheck-sass-lintrc sass-lint ".sass-lint.yml"
   :safe #'stringp)
 

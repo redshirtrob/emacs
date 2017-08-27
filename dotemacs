@@ -163,6 +163,10 @@
 
 ;; Enable flycheck
 (require 'flycheck)
+(require 'flycheck-tip)
+(require 'flycheck-popup-tip)
+(with-eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode))
 
 ;; turn on flychecking globally
 (add-hook 'after-init-hook #'global-flycheck-mode)
