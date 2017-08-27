@@ -26,32 +26,6 @@
 ;; match function
 (defalias 'helm-buffers-list--match-fn 'helm-buffers-match-function)
 
-;; Hack `persp-next' and `persp-prev' to wrap until my PR gets merged
-(defun persp-next-wrap ()
-  "Switch to next perspective (to the right).
-Wrap to the beginning if necessary."
-  (interactive)
-  (let* ((names (persp-names))
-         (pos (cl-position (persp-name persp-curr) names)))
-    (cond
-     ((null pos) (persp-find-some))
-     ((= pos (1- (length names))) (persp-switch (nth 0 names)))
-     (t (persp-switch (nth (1+ pos) names))))))
-
-(defun persp-prev-wrap ()
-  "Switch to previous perspective (to the left).
-Wrap to the beginning if necessary."
-  (interactive)
-  (let* ((names (persp-names))
-         (pos (cl-position (persp-name persp-curr) names)))
-    (cond
-     ((null pos) (persp-find-some))
-     ((= pos 0) (persp-switch (nth (1- (length names)) names)))
-     (t (persp-switch (nth (1- pos) names))))))
-
-(define-key persp-mode-map (kbd "C-x x n") 'persp-next-wrap)
-(define-key persp-mode-map (kbd "C-x x p") 'persp-prev-wrap)
-
 ;; Perspective specific scratch buffers don't get associated
 ;; with the proper projects, because the scratch buffer's
 ;; `default-directory' is rarely the project's directory.
