@@ -13,7 +13,10 @@
   (add-to-list 'company-backends 'company-jedi)
   (local-set-key (kbd "M-.") 'dumb-jump-go)
   (local-set-key (kbd "M-,") 'dumb-jump-back)
-  (local-set-key (kbd "C-]") 'jedi:complete))
+  (local-set-key (kbd "C-]") 'jedi:complete)
+  (setq flycheck-checker 'python-pylint
+        flycheck-checker-error-threshold 900
+        flycheck-pylintrc "~/.pylintrc"))
 
 (add-hook 'python-mode-hook 'python-mode-hacks)
 (add-hook 'python-mode-hook 'jedi:setup)
