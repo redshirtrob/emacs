@@ -61,6 +61,7 @@
 (load-library "neotree-hacks")
 (load-library "mouse-hacks")
 (load-library "ekeys")
+(load-library "rust-mode-hacks")
 
 ;; Helm
 (require 'helm)
@@ -76,7 +77,7 @@
 (global-set-key (kbd "M-z") 'helm-M-x)
 
 (when (executable-find "curl")
-  (setq helm-google-suggest-use-curl-p t))
+  (setq helm-net-prefer-curl t))
 
 (setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
       helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
@@ -209,7 +210,10 @@
    (quote
     ("9b59e147dbbde5e638ea1cde5ec0a358d5f269d27bd2b893a0947c4a867e14c1" "3b24f986084001ae46aa29ca791d2bc7f005c5c939646d2b800143526ab4d323" "96998f6f11ef9f551b427b8853d947a7857ea5a578c75aa9c4e7c73fe04d10b4" "18a33cdb764e4baf99b23dcd5abdbf1249670d412c6d3a8092ae1a7b211613d5" "0c29db826418061b40564e3351194a3d4a125d182c6ee5178c237a7364f0ff12" "46fd293ff6e2f6b74a5edf1063c32f2a758ec24a5f63d13b07a20255c074d399" "3cd28471e80be3bd2657ca3f03fbb2884ab669662271794360866ab60b6cb6e6" "3cc2385c39257fed66238921602d8104d8fd6266ad88a006d0a4325336f5ee02" "e9776d12e4ccb722a2a732c6e80423331bcb93f02e089ba2a4b02e85de1cf00e" "72a81c54c97b9e5efcc3ea214382615649ebb539cb4f2fe3a46cd12af72c7607" "58c6711a3b568437bab07a30385d34aacf64156cc5137ea20e799984f4227265" "3d5ef3d7ed58c9ad321f05360ad8a6b24585b9c49abcee67bdcbb0fe583a6950" "b3775ba758e7d31f3bb849e7c9e48ff60929a792961a2d536edec8f68c671ca5" "7bde52fdac7ac54d00f3d4c559f2f7aa899311655e7eb20ec5491f3b5c533fe8" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "31a01668c84d03862a970c471edbd377b2430868eccf5e8a9aec6831f1a0908d" "1297a022df4228b81bc0436230f211bad168a117282c20ddcba2db8c6a200743" "4af6fad34321a1ce23d8ab3486c662de122e8c6c1de97baed3aa4c10fe55e060" "0ba649556dc51762e6794b92017f6f7406754ae3136eafef686d81c6da176cc5" "a2e7b508533d46b701ad3b055e7c708323fb110b6676a8be458a758dd8f24e27" "ba9be9caf9aa91eb34cf11ad9e8c61e54db68d2d474f99a52ba7e87097fa27f5" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" "987b709680284a5858d5fe7e4e428463a20dfabe0a6f2a6146b3b8c7c529f08b" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
  '(magit-diff-use-overlays nil)
- '(magit-use-overlays nil))
+ '(magit-use-overlays nil)
+ '(package-selected-packages
+   (quote
+    (flycheck-rust cargo zencoding-mode web-mode w3m virtualenv utop use-package tuareg toml-mode thrift swift-mode sublime-themes solarized-theme slime-company scss-mode sass-mode rust-mode pyvirtualenv python-pylint python-mode python-django pymacs persp-projectile persp-mode peg paredit-everywhere neotree markdown-mode magit jedi ipython iedit heroku helm-themes helm-projectile helm-git helm-dash helm-company helm-ag helm-ack handlebars-mode go-snippets go-autocomplete github-theme gandalf-theme flymake-elixir flycheck-tip flycheck-pos-tip flycheck-popup-tip flycheck-elixir flx-ido flatui-theme flatland-theme firecode-theme firebelly-theme eproject ensime emmet-mode el-get edts editorconfig-core editorconfig dumb-jump delight company-restclient company-jedi company-irony company-go company-cmake company-c-headers color-theme-wombat color-theme-twilight color-theme-tangotango color-theme-solarized color-theme-github color-theme-dg clojure-mode-extra-font-locking cl-generic cider autopair alchemist ag afternoon-theme ack-and-a-half 2048-game))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
