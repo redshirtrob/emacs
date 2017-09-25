@@ -8,6 +8,12 @@
 
 (require 'helm)
 
+;;; `make-variable-frame-local' is deprecated but perspective-el still
+;;; uses it. Until perspective-el gets fixed, this will make it work
+;;; in single frame environments.
+(when (not (fboundp 'make-variable-frame-local))
+  (defun make-variable-frame-local (variable) variable))
+
 ;; Enable projectile
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)
