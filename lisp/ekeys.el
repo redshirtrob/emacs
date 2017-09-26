@@ -23,6 +23,7 @@
 (global-set-key (kbd "C-c C-x") 'neotree-toggle)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-c C-c") 'hs-toggle-hiding)
 
 (provide 'ekeys)
 ;;; ekeys.el ends here
