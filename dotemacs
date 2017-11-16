@@ -64,6 +64,8 @@
 (load-library "ekeys")
 (load-library "rust-mode-hacks")
 
+(setq confirm-kill-emacs 'y-or-n-p)
+
 ;; Helm
 (require 'helm)
 (require 'helm-config)
@@ -155,6 +157,14 @@
 
 (show-paren-mode 1)
 (setq show-paren-delay 0)
+(defadvice show-paren-function
+    (after show-matching-paren-offscreen activate)
+  "Show matching paren in the echo area."
+  (interactive)
+  (let* ((cb (char-before (point)))
+         (matching-text (and cb
+                             (char-equal (char-syntax cb) ?\))
+                             (blink-matching-open))))))
 
 ;; Hide things that just take up space
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
@@ -237,3 +247,4 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 (put 'dired-find-alternate-file 'disabled nil)
+
