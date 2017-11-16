@@ -21,8 +21,9 @@
               company-jedi company-restclient concurrent ctable dash deferred diminish dumb-jump
               editorconfig elixir-mode emmet-mode epc ensime epl erlang
 	      flycheck flycheck-elixir flymake-elixir flycheck-popup-tip flycheck-tip flycheck-rust
-              flx flx-ido git-commit go-autocomplete go-mode go-snippets handlebars-mode
-              helm helm-ack helm-company helm-core helm-dash helm-git helm-projectile helm-themes
+              flx flx-ido git-commit go-autocomplete go-mode go-snippets
+              handlebars-mode ggtags
+              helm helm-ack helm-company helm-core helm-dash helm-git helm-gtags helm-projectile helm-themes
               heroku iedit ipython irony jedi jedi-core magit magit-popup markdown-mode neotree paredit
               paredit-everywhere persp-mode persp-projectile perspective pkg-info popup projectile
               python-django python-environment python-mode python-pylint pyvirtualenv queue

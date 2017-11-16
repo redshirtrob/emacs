@@ -63,42 +63,9 @@
 (load-library "mouse-hacks")
 (load-library "ekeys")
 (load-library "rust-mode-hacks")
+(load-library "helm-config")
 
 (setq confirm-kill-emacs 'y-or-n-p)
-
-;; Helm
-(require 'helm)
-(require 'helm-config)
-
-(global-set-key (kbd "C-c h") 'helm-command-prefix)
-(global-set-key (kbd "C-x b") 'helm-mini)
-(global-unset-key (kbd "C-x c"))
-
-(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
-(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
-(define-key helm-map (kbd "C-t")  'helm-select-action) ; list actions using C-t
-(global-set-key (kbd "M-z") 'helm-M-x)
-
-(when (executable-find "curl")
-  (setq helm-net-prefer-curl t))
-
-(setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
-      helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
-      helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
-      helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
-      helm-ff-file-name-history-use-recentf t)
-
-(setq helm-ff-skip-boring-files t)
-(add-to-list 'helm-boring-file-regexp-list '"\\#")
-(add-to-list 'helm-boring-file-regexp-list '"\\.\\#")
-
-(helm-mode 1)
-
-;; Helm Dash
-(require 'helm-dash)
-(setq helm-dash-docset-path '(expand-file-name "~/.docsets"))
-(setq helm-dash-common-docsets '("Clojure" "iOS" "Emacs Lisp" "Bootstrap 3" "Android"))
-(setq helm-dash-browser-func 'w3m)
 
 (setq redisplay-preemption-period nil)
 (electric-pair-mode +1)
@@ -224,7 +191,7 @@
  '(magit-use-overlays nil)
  '(package-selected-packages
    (quote
-    (json-mode racer flycheck-rust cargo zencoding-mode web-mode w3m virtualenv utop use-package tuareg toml-mode thrift swift-mode sublime-themes solarized-theme slime-company scss-mode sass-mode rust-mode pyvirtualenv python-pylint python-mode python-django pymacs persp-projectile persp-mode peg paredit-everywhere neotree markdown-mode magit jedi ipython iedit heroku helm-themes helm-projectile helm-git helm-dash helm-company helm-ag helm-ack handlebars-mode go-snippets go-autocomplete github-theme gandalf-theme flymake-elixir flycheck-tip flycheck-pos-tip flycheck-popup-tip flycheck-elixir flx-ido flatui-theme flatland-theme firecode-theme firebelly-theme eproject ensime emmet-mode el-get edts editorconfig-core editorconfig dumb-jump delight company-restclient company-jedi company-irony company-go company-cmake company-c-headers color-theme-wombat color-theme-twilight color-theme-tangotango color-theme-solarized color-theme-github color-theme-dg clojure-mode-extra-font-locking cl-generic cider autopair alchemist ag afternoon-theme ack-and-a-half 2048-game))))
+    (helm-gtags ggtags json-mode racer flycheck-rust cargo zencoding-mode web-mode w3m virtualenv utop use-package tuareg toml-mode thrift swift-mode sublime-themes solarized-theme slime-company scss-mode sass-mode rust-mode pyvirtualenv python-pylint python-mode python-django pymacs persp-projectile persp-mode peg paredit-everywhere neotree markdown-mode magit jedi ipython iedit heroku helm-themes helm-projectile helm-git helm-dash helm-company helm-ag helm-ack handlebars-mode go-snippets go-autocomplete github-theme gandalf-theme flymake-elixir flycheck-tip flycheck-pos-tip flycheck-popup-tip flycheck-elixir flx-ido flatui-theme flatland-theme firecode-theme firebelly-theme eproject ensime emmet-mode el-get edts editorconfig-core editorconfig dumb-jump delight company-restclient company-jedi company-irony company-go company-cmake company-c-headers color-theme-wombat color-theme-twilight color-theme-tangotango color-theme-solarized color-theme-github color-theme-dg clojure-mode-extra-font-locking cl-generic cider autopair alchemist ag afternoon-theme ack-and-a-half 2048-game))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
