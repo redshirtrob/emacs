@@ -17,14 +17,16 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defvar local-packages
   '(2048-game ack-and-a-half ag async auto-complete autopair caml cider cl-generic
-              clojure-mode company company-c-headers company-cmake company-go company-irony
+              clojure-mode clojure-mode-extra-font-locking company company-c-headers company-cmake company-go company-irony
               company-jedi company-restclient concurrent ctable dash deferred diminish dumb-jump
-              editorconfig emmet-mode epc ensime epl erlang flycheck flycheck-elixir flymake-elixir flycheck-popup-tip flycheck-tip
+              editorconfig elixir-mode emmet-mode epc ensime epl erlang
+	      flycheck flycheck-elixir flymake-elixir flycheck-popup-tip flycheck-tip flycheck-rust
               flx flx-ido git-commit go-autocomplete go-mode go-snippets handlebars-mode
               helm helm-ack helm-company helm-core helm-dash helm-git helm-projectile helm-themes
               heroku iedit ipython irony jedi jedi-core magit magit-popup markdown-mode neotree paredit
               paredit-everywhere persp-mode persp-projectile perspective pkg-info popup projectile
               python-django python-environment python-mode python-pylint pyvirtualenv queue
+	      racer
               restclient know-your-http-well s sbt-mode seq sass-mode scss-mode slime slime-company spinner
               thrift tuareg use-package utop
               virtualenv w3m web-mode with-editor yasnippet zencoding-mode)
