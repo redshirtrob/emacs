@@ -28,6 +28,7 @@
 	     (setq racer-cmd (concat (getenv "HOME") "/.cargo/bin/racer"))
 	     (setq racer-rust-src-path (getenv "RUST_SRC_PATH"))
              (local-set-key (kbd "TAB") #'company-indent-or-complete-common)
+             (define-key objc-mode-map (kbd "C-c C-w") 'copy-word-under-cursor)
 	     (electric-pair-mode 1)))
 
 (provide 'rust-mode-hacks)
