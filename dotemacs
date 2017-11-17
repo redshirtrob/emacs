@@ -64,6 +64,7 @@
 (load-library "ekeys")
 (load-library "rust-mode-hacks")
 (load-library "helm-config")
+(load-library "asm-mode-hacks")
 
 (setq confirm-kill-emacs 'y-or-n-p)
 
