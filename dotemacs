@@ -34,7 +34,6 @@
     ((add-path (p) (add-to-list 'load-path (concat emacs-root p))))
   (add-path (concat workspace-dir "/ebnf-mode"))
   (add-path "emacs/lisp")
-  (add-path (concat workspace-dir "/ac-irony")) ;; git@github.com:Sarcasm/ac-irony.git
   (add-path (concat workspace-dir "/slime")))
 
 (load-library "package-extensions")
