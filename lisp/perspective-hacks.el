@@ -12,7 +12,7 @@
   "Switch to the next perspective (to the right), wrapping if necessary."
   (interactive)
   (let* ((names (persp-names))
-         (pos (cl-position (persp-name persp-curr) names)))
+         (pos (cl-position (persp-name (persp-curr)) names)))
     (cond
      ((null pos) (persp-find-some))
      ((= pos (1- (length names))) (persp-switch (nth 0 names)))
@@ -22,7 +22,7 @@
   "Switch to the prev perspective (to the left), wrapping if necessary."
   (interactive)
   (let* ((names (persp-names))
-         (pos (cl-position (persp-name persp-curr) names)))
+         (pos (cl-position (persp-name (persp-curr)) names)))
     (cond
      ((null pos) (persp-find-some))
      ((= pos 0) (persp-switch (nth (1- (length names)) names)))
