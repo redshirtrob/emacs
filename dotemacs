@@ -32,7 +32,6 @@
 (require 'cl-lib) ;; Note: if this causes issues, switch to (require 'cl)
 (cl-labels
     ((add-path (p) (add-to-list 'load-path (concat emacs-root p))))
-  (add-path (concat workspace-dir "/ebnf-mode"))
   (add-path "emacs/lisp")
   (add-path (concat workspace-dir "/slime")))
 
@@ -40,7 +39,6 @@
 (load-library "commands")
 (load-library "c-mode-hacks")
 (load-library "clojure-mode-hacks")
-(load-library "ebnf-mode")
 (load-library "emacs-lisp-mode-hacks")
 (load-library "elixir-hacks")
 (load-library "go-mode-hacks")
