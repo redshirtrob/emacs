@@ -17,6 +17,11 @@
 ;; Enable projectile
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)
+
+;; Projectile removed the default keymap prefix, so we set it here:
+;; https://github.com/bbatsov/helm-projectile/issues/116
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
 (helm-projectile-on)
 
 ;; Perspective
