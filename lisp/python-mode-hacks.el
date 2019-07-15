@@ -6,6 +6,13 @@
 ;;; Code:
 
 (require 'jedi)
+
+(setq py-python-command "/usr/bin/python3.7")
+(setq jedi:environment-root "jedi")
+(setq jedi:environment-virtualenv
+      (append python-environment-virtualenv
+              '("--python" "/usr/bin/python3.7")))
+
 (jedi:start-server)
 
 (defun python-mode-hacks ()
@@ -14,7 +21,7 @@
   (local-set-key (kbd "M-.") 'dumb-jump-go)
   (local-set-key (kbd "M-,") 'dumb-jump-back)
   (local-set-key (kbd "C-]") 'jedi:complete)
-  (setq flycheck-checker 'python-pylint
+  (setq flycheck-checker 'pylint
         flycheck-checker-error-threshold 900
         flycheck-pylintrc "~/.pylintrc"))
 
