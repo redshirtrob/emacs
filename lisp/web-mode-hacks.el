@@ -4,6 +4,9 @@
 
 ;;; Code:
 
+(setq web-mode-extra-keywords '(("aspx" . ("endif" "endfor"))))
+(setq web-mode-enable-current-element-highlight t)
+
 (require 'web-mode)
 
 (setq js-indent-level 2)
@@ -11,10 +14,12 @@
 (defun web-mode-customizations ()
   "Customize web-mode."
   (setq web-mode-enable-part-face t)
-  (set-face-attribute 'web-mode-html-tag-face nil :foreground "Pink3")
-  (set-face-attribute 'web-mode-html-tag-bracket-face nil :foreground "Black")
+  (set-face-attribute 'web-mode-html-tag-face nil :foreground "blue")
+  (set-face-attribute 'web-mode-keyword-face nil :weight 'ultra-bold)
+  (set-face-attribute 'web-mode-block-delimiter-face nil :foreground "black")
+  (set-face-attribute 'web-mode-html-tag-bracket-face nil :foreground "blue")
   (set-face-attribute 'web-mode-html-attr-equal-face nil :foreground "Black")
-  (set-face-attribute 'web-mode-html-attr-name-face nil :foreground "Yellow")
+  (set-face-attribute 'web-mode-html-attr-name-face nil :foreground "Blue")
   (set-face-attribute 'web-mode-part-string-face nil :foreground "Red")
   (set-face-attribute 'web-mode-part-face nil :foreground "Red")
   (setq web-mode-markup-indent-offset 2))
