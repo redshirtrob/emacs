@@ -204,6 +204,7 @@
 
 ;; see `man manpath`
 (global-set-key [(f1)] (lambda () (interactive) (manual-entry (current-word))))
+(global-set-key (kbd "C-x g") 'magit-status)
 
 (provide 'dotemacs)
 ;;; dotemacs ends here
