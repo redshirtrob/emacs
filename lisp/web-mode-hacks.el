@@ -4,7 +4,7 @@
 
 ;;; Code:
 
-(setq web-mode-extra-keywords '(("aspx" . ("endif" "endfor"))))
+(setq web-mode-extra-keywords '(("aspx" . ("endif" "endfor" "endblock" "extends"))))
 (setq web-mode-enable-current-element-highlight t)
 
 (require 'web-mode)
