@@ -85,5 +85,11 @@ Requires `zsh-path' to be the path to the zsh executable."
 
 (define-key persp-mode-map (kbd "C-x x z") 'persp-switch-to-ansi-term)
 
+(add-to-list 'projectile-globally-ignored-directories "node_modules")
+(add-to-list 'projectile-globally-ignored-directories "jquery.js")
+(add-to-list 'projectile-globally-ignored-directories "**/jquery.js")
+(add-to-list 'projectile-globally-ignored-directories "*.min.js")
+(add-to-list 'projectile-globally-ignored-directories "**/*.min.js")
+
 (provide 'workspace)
 ;;; workspace.el ends here

@@ -8,7 +8,7 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
-(package-initialize)
+;;(package-initialize)
 
 (require 'jka-compr)
 
@@ -32,6 +32,8 @@
 (cl-labels
     ((add-path (p) (add-to-list 'load-path (concat emacs-root p))))
   (add-path "emacs/lisp"))
+
+(require 'lsp-mode)
 
 (load-library "package-extensions")
 (load-library "commands")
@@ -80,19 +82,19 @@
 (ac-config-default)
 
 (setq-default ac-sources '(ac-source-abbrev ac-source-dictionary ac-source-words-in-same-mode-buffers))
+(setq-default ac-sources '(ac-source-dictionary ac-source-words-in-same-mode-buffers))
 (add-hook 'emacs-lisp-mode-hook 'ac-emacs-lisp-mode-setup)
 (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)
 (add-hook 'auto-complete-mode-hook 'ac-common-setup)
 (global-auto-complete-mode t)
 (add-to-list 'ac-modes 'objc-mode)
 
-;; Remove trailing whitespace on file save
-;;(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(require 'ws-butler)
+(add-hook 'prog-mode-hook #'ws-butler-mode)
 
 (prefer-coding-system 'utf-8)
 (set-face-attribute 'default nil :height 90)
 (setq-default truncate-lines t)
-(setq-default indent-tabs-mode nil)
 (global-font-lock-mode 1)
 
 ;; General settings
@@ -175,19 +177,88 @@
 ;;
 ;; tic -o ~/.terminfo /usr/local/Cellar/emacs/24.4/share/emacs/24.4/etc/e/eterm-color.ti
 (when (eq system-type 'darwin) (setq system-uses-terminfo nil))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(compilation-message-face 'default)
+ '(cua-global-mark-cursor-color "#11948b")
+ '(cua-normal-cursor-color "#596e76")
+ '(cua-overwrite-cursor-color "#a67c00")
+ '(cua-read-only-cursor-color "#778c00")
  '(custom-safe-themes
-   (quote
-    ("9b59e147dbbde5e638ea1cde5ec0a358d5f269d27bd2b893a0947c4a867e14c1" "3b24f986084001ae46aa29ca791d2bc7f005c5c939646d2b800143526ab4d323" "96998f6f11ef9f551b427b8853d947a7857ea5a578c75aa9c4e7c73fe04d10b4" "18a33cdb764e4baf99b23dcd5abdbf1249670d412c6d3a8092ae1a7b211613d5" "0c29db826418061b40564e3351194a3d4a125d182c6ee5178c237a7364f0ff12" "46fd293ff6e2f6b74a5edf1063c32f2a758ec24a5f63d13b07a20255c074d399" "3cd28471e80be3bd2657ca3f03fbb2884ab669662271794360866ab60b6cb6e6" "3cc2385c39257fed66238921602d8104d8fd6266ad88a006d0a4325336f5ee02" "e9776d12e4ccb722a2a732c6e80423331bcb93f02e089ba2a4b02e85de1cf00e" "72a81c54c97b9e5efcc3ea214382615649ebb539cb4f2fe3a46cd12af72c7607" "58c6711a3b568437bab07a30385d34aacf64156cc5137ea20e799984f4227265" "3d5ef3d7ed58c9ad321f05360ad8a6b24585b9c49abcee67bdcbb0fe583a6950" "b3775ba758e7d31f3bb849e7c9e48ff60929a792961a2d536edec8f68c671ca5" "7bde52fdac7ac54d00f3d4c559f2f7aa899311655e7eb20ec5491f3b5c533fe8" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "31a01668c84d03862a970c471edbd377b2430868eccf5e8a9aec6831f1a0908d" "1297a022df4228b81bc0436230f211bad168a117282c20ddcba2db8c6a200743" "4af6fad34321a1ce23d8ab3486c662de122e8c6c1de97baed3aa4c10fe55e060" "0ba649556dc51762e6794b92017f6f7406754ae3136eafef686d81c6da176cc5" "a2e7b508533d46b701ad3b055e7c708323fb110b6676a8be458a758dd8f24e27" "ba9be9caf9aa91eb34cf11ad9e8c61e54db68d2d474f99a52ba7e87097fa27f5" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" "987b709680284a5858d5fe7e4e428463a20dfabe0a6f2a6146b3b8c7c529f08b" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
+   '("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "efbe8f0a87281bcfa5e560d5ca10268c735de3a3bb160b54c520d02609aed9d8" "7f1d414afda803f3244c6fb4c2c64bea44dac040ed3731ec9d75275b9e831fe5" "00445e6f15d31e9afaa23ed0d765850e9cd5e929be5e8e63b114a3346236c44c" "c433c87bd4b64b8ba9890e8ed64597ea0f8eb0396f4c9a9e01bd20a04d15d358" "9b59e147dbbde5e638ea1cde5ec0a358d5f269d27bd2b893a0947c4a867e14c1" "3b24f986084001ae46aa29ca791d2bc7f005c5c939646d2b800143526ab4d323" "96998f6f11ef9f551b427b8853d947a7857ea5a578c75aa9c4e7c73fe04d10b4" "18a33cdb764e4baf99b23dcd5abdbf1249670d412c6d3a8092ae1a7b211613d5" "0c29db826418061b40564e3351194a3d4a125d182c6ee5178c237a7364f0ff12" "46fd293ff6e2f6b74a5edf1063c32f2a758ec24a5f63d13b07a20255c074d399" "3cd28471e80be3bd2657ca3f03fbb2884ab669662271794360866ab60b6cb6e6" "3cc2385c39257fed66238921602d8104d8fd6266ad88a006d0a4325336f5ee02" "e9776d12e4ccb722a2a732c6e80423331bcb93f02e089ba2a4b02e85de1cf00e" "72a81c54c97b9e5efcc3ea214382615649ebb539cb4f2fe3a46cd12af72c7607" "58c6711a3b568437bab07a30385d34aacf64156cc5137ea20e799984f4227265" "3d5ef3d7ed58c9ad321f05360ad8a6b24585b9c49abcee67bdcbb0fe583a6950" "b3775ba758e7d31f3bb849e7c9e48ff60929a792961a2d536edec8f68c671ca5" "7bde52fdac7ac54d00f3d4c559f2f7aa899311655e7eb20ec5491f3b5c533fe8" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "31a01668c84d03862a970c471edbd377b2430868eccf5e8a9aec6831f1a0908d" "1297a022df4228b81bc0436230f211bad168a117282c20ddcba2db8c6a200743" "4af6fad34321a1ce23d8ab3486c662de122e8c6c1de97baed3aa4c10fe55e060" "0ba649556dc51762e6794b92017f6f7406754ae3136eafef686d81c6da176cc5" "a2e7b508533d46b701ad3b055e7c708323fb110b6676a8be458a758dd8f24e27" "ba9be9caf9aa91eb34cf11ad9e8c61e54db68d2d474f99a52ba7e87097fa27f5" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" "987b709680284a5858d5fe7e4e428463a20dfabe0a6f2a6146b3b8c7c529f08b" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default))
+ '(fci-rule-color "#f4eedb")
+ '(global-auto-complete-mode t)
+ '(global-flycheck-mode t)
+ '(highlight-changes-colors '("#c42475" "#5e65b6"))
+ '(highlight-symbol-colors
+   '("#ecdab1" "#cce1d0" "#fbcab3" "#d8d3dc" "#dedeb2" "#f6ccae" "#d0dae0"))
+ '(highlight-symbol-foreground-color "#5d737a")
+ '(highlight-tail-colors
+   '(("#f4eedb" . 0)
+	 ("#a8b84b" . 20)
+	 ("#66c1b3" . 30)
+	 ("#6fa5e7" . 50)
+	 ("#d6a549" . 60)
+	 ("#ed6e3e" . 70)
+	 ("#f46495" . 85)
+	 ("#f4eedb" . 100)))
+ '(hl-bg-colors
+   '("#d6a549" "#ed6e3e" "#ff6243" "#f46495" "#837bdf" "#6fa5e7" "#66c1b3" "#a8b84b"))
+ '(hl-fg-colors
+   '("#fffce9" "#fffce9" "#fffce9" "#fffce9" "#fffce9" "#fffce9" "#fffce9" "#fffce9"))
+ '(hl-paren-colors '("#11948b" "#a67c00" "#007ec4" "#5e65b6" "#778c00"))
  '(magit-diff-use-overlays nil)
  '(magit-use-overlays nil)
+ '(nrepl-message-colors
+   '("#cc1f24" "#bb3e06" "#a67c00" "#4f6600" "#a8b84b" "#005797" "#11948b" "#c42475" "#5e65b6"))
  '(package-selected-packages
-   (quote
-    (ein slime helm-gtags ggtags json-mode racer flycheck-rust cargo zencoding-mode web-mode w3m virtualenv utop use-package tuareg toml-mode thrift swift-mode sublime-themes solarized-theme slime-company scss-mode sass-mode rust-mode pyvirtualenv python-pylint python-mode python-django pymacs persp-projectile persp-mode peg paredit-everywhere neotree markdown-mode magit jedi ipython iedit heroku helm-themes helm-projectile helm-git helm-dash helm-company helm-ag helm-ack handlebars-mode go-snippets go-autocomplete github-theme gandalf-theme flymake-elixir flycheck-tip flycheck-pos-tip flycheck-popup-tip flycheck-elixir flx-ido flatui-theme flatland-theme firecode-theme firebelly-theme eproject ensime emmet-mode el-get edts editorconfig-core editorconfig dumb-jump delight company-restclient company-jedi company-irony company-go company-cmake company-c-headers color-theme-wombat color-theme-twilight color-theme-tangotango color-theme-solarized color-theme-github color-theme-dg clojure-mode-extra-font-locking cl-generic cider autopair alchemist ag afternoon-theme ack-and-a-half 2048-game))))
+   '(php-mode yaml-mode eldoc dash company-jedi jedi jedi-core helm-lsp lsp-jedi lsp-mode spacemacs-theme habamax-theme ws-butler ein slime helm-gtags ggtags json-mode racer flycheck-rust cargo zencoding-mode web-mode w3m virtualenv utop use-package tuareg toml-mode thrift swift-mode sublime-themes solarized-theme slime-company scss-mode sass-mode rust-mode pyvirtualenv python-pylint python-mode python-django pymacs persp-projectile persp-mode peg paredit-everywhere neotree markdown-mode magit ipython iedit heroku helm-themes helm-projectile helm-git helm-dash helm-company helm-ag helm-ack handlebars-mode go-snippets go-autocomplete github-theme gandalf-theme flymake-elixir flycheck-tip flycheck-pos-tip flycheck-popup-tip flycheck-elixir flx-ido flatui-theme flatland-theme firecode-theme firebelly-theme eproject ensime emmet-mode el-get edts editorconfig-core editorconfig dumb-jump delight company-restclient company-irony company-go company-cmake company-c-headers color-theme-wombat color-theme-twilight color-theme-tangotango color-theme-solarized color-theme-github color-theme-dg clojure-mode-extra-font-locking cl-generic cider autopair alchemist ag afternoon-theme ack-and-a-half 2048-game))
+ '(pos-tip-background-color "#f4eedb")
+ '(pos-tip-foreground-color "#5d737a")
+ '(safe-local-variable-values
+   '((python-indent-offset . 4)
+	 (eval web-mode-use-tabs)
+	 (eval web-mode-set-engine "aspx")
+	 (indent-tabs-mode quote t)
+	 (web-mode-indent-style . 4)
+	 (eval highlight-regexp "^ *")))
+ '(smartrep-mode-line-active-bg (solarized-color-blend "#778c00" "#f4eedb" 0.2))
+ '(tab-width 4)
+ '(term-default-bg-color "#fffce9")
+ '(term-default-fg-color "#596e76")
+ '(vc-annotate-background nil)
+ '(vc-annotate-background-mode nil)
+ '(vc-annotate-color-map
+   '((20 . "#cc1f24")
+	 (40 . "#bb5918")
+	 (60 . "#b16b0f")
+	 (80 . "#a67c00")
+	 (100 . "#978100")
+	 (120 . "#8f8400")
+	 (140 . "#878700")
+	 (160 . "#7f8900")
+	 (180 . "#778c00")
+	 (200 . "#698e3f")
+	 (220 . "#5f8f53")
+	 (240 . "#519166")
+	 (260 . "#3d9278")
+	 (280 . "#11948b")
+	 (300 . "#1a8ba1")
+	 (320 . "#1986ad")
+	 (340 . "#1282b8")
+	 (360 . "#007ec4")))
+ '(vc-annotate-very-old-color nil)
+ '(weechat-color-list
+   '(unspecified "#fffce9" "#f4eedb" "#990001" "#cc1f24" "#4f6600" "#778c00" "#785700" "#a67c00" "#005797" "#007ec4" "#93004d" "#c42475" "#006d68" "#11948b" "#596e76" "#88999b"))
+ '(xterm-color-names
+   ["#f4eedb" "#cc1f24" "#778c00" "#a67c00" "#007ec4" "#c42475" "#11948b" "#002b37"])
+ '(xterm-color-names-bright
+   ["#fffce9" "#bb3e06" "#98a6a6" "#88999b" "#596e76" "#5e65b6" "#5d737a" "#00212b"]))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
