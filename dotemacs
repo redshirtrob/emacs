@@ -33,7 +33,7 @@
     ((add-path (p) (add-to-list 'load-path (concat emacs-root p))))
   (add-path "emacs/lisp"))
 
-(require 'lsp-mode)
+;;(require 'lsp-mode)
 
 (load-library "package-extensions")
 (load-library "commands")
@@ -89,8 +89,8 @@
 (global-auto-complete-mode t)
 (add-to-list 'ac-modes 'objc-mode)
 
-(require 'ws-butler)
-(add-hook 'prog-mode-hook #'ws-butler-mode)
+;;(require 'ws-butler)
+;;(add-hook 'prog-mode-hook #'ws-butler-mode)
 
 (prefer-coding-system 'utf-8)
 (set-face-attribute 'default nil :height 90)
@@ -216,7 +216,7 @@
  '(nrepl-message-colors
    '("#cc1f24" "#bb3e06" "#a67c00" "#4f6600" "#a8b84b" "#005797" "#11948b" "#c42475" "#5e65b6"))
  '(package-selected-packages
-   '(php-mode yaml-mode eldoc dash company-jedi jedi jedi-core helm-lsp lsp-jedi lsp-mode spacemacs-theme habamax-theme ws-butler ein slime helm-gtags ggtags json-mode racer flycheck-rust cargo zencoding-mode web-mode w3m virtualenv utop use-package tuareg toml-mode thrift swift-mode sublime-themes solarized-theme slime-company scss-mode sass-mode rust-mode pyvirtualenv python-pylint python-mode python-django pymacs persp-projectile persp-mode peg paredit-everywhere neotree markdown-mode magit ipython iedit heroku helm-themes helm-projectile helm-git helm-dash helm-company helm-ag helm-ack handlebars-mode go-snippets go-autocomplete github-theme gandalf-theme flymake-elixir flycheck-tip flycheck-pos-tip flycheck-popup-tip flycheck-elixir flx-ido flatui-theme flatland-theme firecode-theme firebelly-theme eproject ensime emmet-mode el-get edts editorconfig-core editorconfig dumb-jump delight company-restclient company-irony company-go company-cmake company-c-headers color-theme-wombat color-theme-twilight color-theme-tangotango color-theme-solarized color-theme-github color-theme-dg clojure-mode-extra-font-locking cl-generic cider autopair alchemist ag afternoon-theme ack-and-a-half 2048-game))
+   '(flatbuffers-mode protobuf-mode bazel lsp-ui rustic php-mode yaml-mode eldoc dash company-jedi jedi jedi-core helm-lsp lsp-jedi lsp-mode spacemacs-theme habamax-theme ws-butler ein slime helm-gtags ggtags json-mode racer flycheck-rust cargo zencoding-mode web-mode w3m virtualenv utop use-package tuareg toml-mode thrift swift-mode sublime-themes solarized-theme slime-company scss-mode sass-mode rust-mode pyvirtualenv python-pylint python-mode python-django pymacs persp-projectile persp-mode peg paredit-everywhere neotree markdown-mode magit ipython iedit heroku helm-themes helm-projectile helm-git helm-dash helm-company helm-ag helm-ack handlebars-mode go-snippets go-autocomplete github-theme gandalf-theme flymake-elixir flycheck-tip flycheck-pos-tip flycheck-popup-tip flycheck-elixir flx-ido flatui-theme flatland-theme firecode-theme firebelly-theme eproject ensime emmet-mode el-get edts editorconfig-core editorconfig dumb-jump delight company-restclient company-irony company-go company-cmake company-c-headers color-theme-wombat color-theme-twilight color-theme-tangotango color-theme-solarized color-theme-github color-theme-dg clojure-mode-extra-font-locking cl-generic cider alchemist ag afternoon-theme ack-and-a-half 2048-game))
  '(pos-tip-background-color "#f4eedb")
  '(pos-tip-foreground-color "#5d737a")
  '(safe-local-variable-values

@@ -26,6 +26,7 @@
 
 ;; Perspective
 (require 'perspective)
+(customize-set-variable 'persp-mode-prefix-key (kbd "C-x x"))
 (persp-mode)
 
 (setq projectile-mode-line '(:eval (format " Prj[%s]" (projectile-project-name))))

@@ -15,15 +15,15 @@
 ;; http://batsov.com/articles/2012/02/19/package-management-in-emacs-the-good-the-bad-and-the-ugly/
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defvar local-packages
-  '(2048-game ag alchemist async auto-complete autopair caml cider cl-generic
+  '(2048-game ag alchemist async auto-complete caml cider cl-generic
               clojure-mode clojure-mode-extra-font-locking company company-c-headers company-go company-irony
               company-restclient dash deferred dumb-jump
-              editorconfig elixir-mode emmet-mode ensime epl 
+              editorconfig elixir-mode emmet-mode epl 
 	      flycheck flycheck-elixir flymake-elixir flycheck-popup-tip flycheck-tip flycheck-rust
               flx flx-ido git-commit go-autocomplete go-mode go-snippets
               handlebars-mode ggtags
               helm helm-ack helm-ag helm-company helm-core helm-dash helm-git helm-gtags helm-projectile helm-themes
-              heroku iedit irony magit markdown-mode neotree paredit
+              iedit irony magit markdown-mode neotree paredit
               paredit-everywhere persp-mode persp-projectile perspective pkg-info popup projectile
               python-django python-mode queue
 	      racer
